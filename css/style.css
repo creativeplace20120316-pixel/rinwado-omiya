@@ -63,7 +63,7 @@ ul { list-style: none; }
 @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
 .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,15,12,.78) 0%, rgba(18,15,12,.35) 55%, rgba(18,15,12,.15) 100%), linear-gradient(0deg, rgba(18,15,12,.9) 0%, rgba(18,15,12,0) 35%); }
 .hero-copy { position: absolute; left: var(--gutter); right: var(--gutter); bottom: clamp(90px, 16vh, 160px); }
-.hero-catch { font-family: var(--serif); font-size: clamp(26px, 5vw, 58px); font-weight: 500; line-height: 1.6; letter-spacing: .1em; white-space: nowrap; }
+.hero-catch { font-family: var(--serif); font-size: clamp(38px, 6.4vw, 84px); font-weight: 500; line-height: 1.5; letter-spacing: .1em; white-space: nowrap; }
 .hero-lead { margin: 18px 0 34px; font-family: var(--serif); color: var(--gold); letter-spacing: .24em; font-size: clamp(13px, 1.4vw, 16px); }
 .hero-scroll { position: absolute; right: var(--gutter); bottom: 0; writing-mode: vertical-rl; font-size: 10px; letter-spacing: .4em; color: var(--muted); padding-bottom: 70px; }
 .hero-scroll::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 1px; height: 56px; background: var(--gold); }
