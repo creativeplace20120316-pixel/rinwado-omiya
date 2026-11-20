@@ -285,6 +285,9 @@ html, body { overflow-x: clip; }
 .course-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 55%; }
 .course-photo figcaption { position: absolute; left: 0; bottom: 0; font-size: 11px; letter-spacing: .1em; color: var(--paper); background: rgba(18, 15, 12, .78); padding: 3px 12px 4px; }
 .course-tag { z-index: 2; }
+@supports (grid-template-rows: subgrid) {
+  .course-card { display: grid; grid-template-rows: subgrid; grid-row: span 7; row-gap: 0; align-content: start; }
+}
 .course-card.is-pick { border-color: var(--gold); }
 .course-tag { position: absolute; top: -1px; right: 22px; font-family: var(--serif); font-size: 12px; letter-spacing: .2em; color: var(--ink); background: var(--gold); padding: 3px 12px 4px; }
 .course-card h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(19px, 1.9vw, 23px); letter-spacing: .1em; line-height: 1.6; }
