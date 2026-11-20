@@ -287,7 +287,9 @@ html, body { overflow-x: clip; }
 .sp-bar { display: none; }
 @media (max-width: 900px) {
   .reserve-btns .btn-tel { min-width: 0; width: 100%; }
-  .sp-bar { display: grid; grid-template-columns: 5fr 3fr 3fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; font-family: var(--serif); font-weight: 700; letter-spacing: .2em; text-align: center; }
+  .gnav .nav-reserve, .gnav .nav-tel { box-sizing: border-box; width: min(280px, 76vw); text-align: center; }
+  .gnav .nav-reserve { padding: 14px 0 !important; }
+  .sp-bar { display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; font-family: var(--serif); font-weight: 700; letter-spacing: .2em; text-align: center; }
   .sp-bar a { padding: 15px 0; }
   .sp-bar-tel { background: var(--gold); color: var(--ink); }
   .sp-bar-map { background: var(--ink-3); color: var(--paper); border-top: 1px solid var(--line); }
