@@ -277,6 +277,16 @@ html, body { overflow-x: clip; }
   .brand-name { font-size: 22px; }
   .brand-shop { display: none; }
 }
+.facility { max-width: 1112px; }
+.facility-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.facility-photo { position: relative; }
+.facility-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 38%; border: 1px solid var(--line); }
+.facility-body h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: .12em; line-height: 1.7; padding-bottom: 16px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.facility-body > p { color: #d9cdb8; }
+.facility-list { display: grid; grid-template-columns: 6em 1fr; margin-top: 22px; }
+.facility-list dt, .facility-list dd { padding: 12px 0; border-bottom: 1px solid var(--line); line-height: 1.8; font-size: 14.5px; }
+.facility-list dt { font-family: var(--serif); color: var(--gold); letter-spacing: .14em; }
+@media (max-width: 900px) { .facility-grid { grid-template-columns: 1fr; } }
 .access-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 26px; }
 .access-info .access-photos img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; margin: 0; }
 .access-info .access-photos img:last-child { object-position: 42% center; }
