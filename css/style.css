@@ -277,6 +277,25 @@ html, body { overflow-x: clip; }
   .brand-name { font-size: 22px; }
   .brand-shop { display: none; }
 }
+.course { max-width: 1320px; }
+.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 26px); }
+.course-card { position: relative; display: flex; flex-direction: column; background: var(--ink-2); border: 1px solid var(--line); padding: clamp(22px, 2.6vw, 36px); }
+.course-card.is-pick { border-color: var(--gold); }
+.course-tag { position: absolute; top: -1px; right: 22px; font-family: var(--serif); font-size: 12px; letter-spacing: .2em; color: var(--ink); background: var(--gold); padding: 3px 12px 4px; }
+.course-card h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(19px, 1.9vw, 23px); letter-spacing: .1em; line-height: 1.6; }
+.course-meta { margin-top: 6px; font-size: 13px; color: var(--muted); letter-spacing: .08em; }
+.course-price { margin-top: 14px; font-family: var(--serif); color: var(--gold); font-size: 17px; line-height: 1.2; }
+.course-price b { font-size: clamp(32px, 3.2vw, 42px); font-weight: 500; letter-spacing: .04em; margin-right: 2px; }
+.course-price small { font-size: 12px; color: var(--muted); margin-left: 4px; }
+.course-sub { margin-top: 6px; font-size: 13px; color: #d9cdb8; }
+.course-dishes { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.course-dishes li { position: relative; padding: 5px 0 5px 3.4em; font-size: 13.5px; line-height: 1.75; color: #e2d7c3; }
+.course-dishes li span { position: absolute; left: 0; top: 6px; width: 2.9em; font-family: var(--serif); font-size: 12px; color: var(--gold); letter-spacing: .1em; }
+.course-dishes li:not(:has(span)) { padding-left: 0; }
+.course-note { margin-top: 14px; font-size: 12px; color: var(--muted); }
+.course-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 36px; }
+@media (max-width: 1040px) { .course-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .course-grid { grid-template-columns: 1fr; } .course-cta .btn { width: 100%; text-align: center; padding: 14px 10px; letter-spacing: .14em; } }
 .facility { max-width: 1112px; }
 .facility-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
 .facility-photo { position: relative; }
