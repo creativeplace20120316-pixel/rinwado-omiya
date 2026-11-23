@@ -91,7 +91,13 @@
    "value": true
   }
  ],
- "url": "https://rinwado-omiya.com/"
+ "url": "https://rinwado-omiya.com/",
+ "geo": {
+  "@type": "GeoCoordinates",
+  "latitude": 35.9041949,
+  "longitude": 139.6261977
+ },
+ "hasMap": "https://maps.app.goo.gl/SbQ8Xei9EPzeVgAY8"
 }
 </script>
 <script type="application/ld+json">
@@ -568,7 +574,7 @@
       <dl>
         <dt>店名</dt><dd>酒ト肴 個室居酒屋 凛和堂 大宮店</dd>
         <dt>住所</dt><dd>〒330-0845<br>埼玉県さいたま市大宮区仲町1丁目114<br>レッツビル B1F</dd>
-        <dt>アクセス</dt><dd>JR「大宮駅」東口方面<br>レッツビルの地下1階です。上の写真の入口から階段でお越しください。<br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=%E5%9F%BC%E7%8E%89%E7%9C%8C%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E5%B8%82%E5%A4%A7%E5%AE%AE%E5%8C%BA%E4%BB%B2%E7%94%BA1%E4%B8%81%E7%9B%AE114" target="_blank" rel="noopener">Google マップで開く</a></dd>
+        <dt>アクセス</dt><dd>JR「大宮駅」東口方面<br>レッツビルの地下1階です。上の写真の入口から階段でお越しください。<br><a class="maplink" href="https://maps.app.goo.gl/SbQ8Xei9EPzeVgAY8" target="_blank" rel="noopener">Google マップで開く</a></dd>
         <dt>電話</dt><dd><a class="tel" href="tel:0488719386">048-871-9386</a></dd>
         <dt>ご予約</dt><dd><a class="maplink" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=11067038" target="_blank" rel="noopener">ネット予約（24時間受付）</a></dd>
         <dt>営業時間</dt><dd>平日　15:00〜23:30<br>土日祝　12:00〜23:30</dd>
@@ -577,7 +583,7 @@
     </div>
     <div class="access-map reveal">
       <iframe title="凛和堂 大宮店の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=%E5%9F%BC%E7%8E%89%E7%9C%8C%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E5%B8%82%E5%A4%A7%E5%AE%AE%E5%8C%BA%E4%BB%B2%E7%94%BA1%E4%B8%81%E7%9B%AE114&z=17&output=embed"></iframe>
+        src="https://www.google.com/maps?q=%E9%85%92%E3%83%88%E8%82%B4%20%E5%80%8B%E5%AE%A4%E5%B1%85%E9%85%92%E5%B1%8B%20%E5%87%9B%E5%92%8C%E5%A0%82%20%E5%A4%A7%E5%AE%AE%E5%BA%97&ll=35.9041949,139.6261977&z=17&output=embed"></iframe>
     </div>
   </div>
 </section>
@@ -624,6 +630,24 @@
   var h = document.querySelector('.site-header');
   var onScroll = function () { h.classList.toggle('is-solid', window.scrollY > 40); };
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  // 予約・電話ボタンのクリック計測（Google アナリティクス）
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || typeof window.gtag !== 'function') return;
+    var href = a.getAttribute('href') || '', name = '';
+    if (href.indexOf('tel:') === 0) name = 'tel_click';
+    else if (href.indexOf('yoyaku.tabelog.com') !== -1) name = 'reserve_click';
+    else if (href.indexOf('google.com/maps') !== -1 || href.indexOf('maps.app.goo.gl') !== -1) name = 'map_click';
+    if (!name) return;
+    var loc = 'other';
+    if (a.closest('.sp-bar')) loc = 'sp_bar';
+    else if (a.closest('.gnav')) loc = window.innerWidth <= 900 ? 'sp_menu' : 'header';
+    else if (a.closest('.hero')) loc = 'hero';
+    else if (a.closest('#course')) loc = 'course';
+    else if (a.closest('#access')) loc = 'info';
+    else if (a.closest('#reserve')) loc = 'reserve';
+    window.gtag('event', name, { link_location: loc, link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 40) });
+  });
   var els = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
   var io = new IntersectionObserver(function (es) {
